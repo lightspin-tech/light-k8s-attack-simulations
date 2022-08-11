@@ -1,0 +1,36 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_TAG: latest
+  IMAGE_NAME: k8s-attack-simulation
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: export branch name
+        run: echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      
+      - name: Login to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_TOKEN }}
+      
+      - name: Build image and push
+        uses: docker/build-push-action@v3
+        with:
+          file: Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ env.BRANCH }}
+            ghcr.io/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          labels: 
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}

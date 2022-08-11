@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mount-cgroups-into-container
+  labels:
+    app: ubuntu
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/simulation: unconfined
+spec:
+  containers:
+  - image: ghcr.io/lightspin-tech/light-k8s-attack-simulations/k8s-attack-simulation:latest
+    command: ["src/shell-mount-cgroups-into-container.sh"]
+    imagePullPolicy: Always
+    name: simulation
+    securityContext:
+      capabilities:
+        add: ["SYS_ADMIN"]
