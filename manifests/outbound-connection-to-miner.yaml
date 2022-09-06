@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: outbound-connections-to-miner
+  name: outbound-connection-to-miner
   labels:
     app: ubuntu
 spec:
