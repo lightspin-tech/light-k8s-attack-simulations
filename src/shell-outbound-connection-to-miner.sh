@@ -1,8 +1,5 @@
 #!/bin/bash
 
-apt update
-apt install unzip 
-apt-get -y install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev
 cd /src/
 unzip zip.zip 
 chmod +x xmrig
