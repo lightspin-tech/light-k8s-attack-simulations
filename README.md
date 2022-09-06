@@ -14,6 +14,7 @@ dump-process-memory | Dump Process Memory | Gathering credentials from informati
 modify-ssh-authorized-keys | Modify SSH Authorized Keys | Editing of SSH authorized_keys file to maintain persistence on compromised environment |
 logs-removal | Logs Removal | Delete of system and audit logs |
 mount-cgroups-into-container | Mount Cgroups Into Container | Detect mount of cgroups into container (used to container escapes) |
+outbound-connection-to-miner | Detect Outbound Connections To Common Miner Pool Ports | Miners typically connect to miner pools on common ports (NOTE: Execute xmrig inside the container)
 
 ## Get Started 
 
