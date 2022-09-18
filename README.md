@@ -52,3 +52,6 @@ other arguments:
 -h --help         show this help message and exit
 -n --namespcae		install pod on spesific namespace
  ```
+ 
+ ## Blogs and Guides
+**Guide to analyzing kubernetes runtime alerts using Lightspin & Amazon Athena  [Blog Link](https://blog.lightspin.io/the-guide-to-analyzing-kubernetes-runtime-detection-alerts-using-amazon-athena)**
